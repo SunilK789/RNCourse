@@ -1,9 +1,14 @@
-import { View, TextInput, Button, Modal } from "react-native";
+import { View, TextInput, Button, Modal, Image } from "react-native";
 import React, { useState } from "react";
 import styles from "./style";
 import { IGoalInputProps } from "../../intefaces/types";
+import { GoalImage } from "../../Utils/Images";
 
-const GoalInput: React.FC<IGoalInputProps> = ({ onAddGoal, modalVisible, onCancel }) => {
+const GoalInput: React.FC<IGoalInputProps> = ({
+  onAddGoal,
+  modalVisible,
+  onCancel,
+}) => {
   const [input, setInput] = useState<string>("");
 
   const handleInputText = (enteredText: string) => {
@@ -18,6 +23,7 @@ const GoalInput: React.FC<IGoalInputProps> = ({ onAddGoal, modalVisible, onCance
   return (
     <Modal visible={modalVisible} animationType="slide">
       <View style={styles.inputContainer}>
+        <Image source={GoalImage} style={styles.image} />
         <TextInput
           style={styles.textInput}
           placeholder="add your goal.."
@@ -26,10 +32,10 @@ const GoalInput: React.FC<IGoalInputProps> = ({ onAddGoal, modalVisible, onCance
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Add Goal" onPress={addGoalHandler} />
+            <Button title="Add Goal" onPress={addGoalHandler} color="#b180f0" />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" onPress={onCancel} />
+            <Button title="Cancel" onPress={onCancel} color="#f31282" />
           </View>
         </View>
       </View>

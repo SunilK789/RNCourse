@@ -5,29 +5,35 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    borderBottomWidth: 1,
     alignItems: "center",
-    marginBottom: 24,
-    borderBlockColor: "#cccccc",
-    padding: 16
+    padding: 16,
+    backgroundColor: "#311b6b",
   },
   textInput: {
     borderWidth: 1,
     width: "100%",
-    borderColor: "#ccc",
+    borderColor: "#e4d0ff",
+    backgroundColor: "#e4d0ff",
     padding: 8,
+    color: '#120438',
+    borderRadius: 5
   },
   goalContainer: {
     flex: 4,
   },
   buttonContainer: {
     marginTop: 16,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   button: {
-    width: '30%',
-    marginHorizontal: 8
-  }
+    width: "30%",
+    marginHorizontal: 8,
+  },
+  image: {
+    height: 100,
+    width: 100,
+    margin: 20,
+  },
 });
 
 export default styles;
