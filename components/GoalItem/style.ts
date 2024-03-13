@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
   goalText: {
     color: "white",
   },
+  pressedItem: {
+    color: "green",
+  },
 });
 
 export default styles;

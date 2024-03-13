@@ -1,7 +1,18 @@
+export interface IAppProps{
+
+}
+
+export interface IGoalProps{
+    text: string,
+    id: string
+}
 export interface IGoalItemProps {
-    goal: any
+    goal: any,
+    onDeleteGoal: any;
 }
 
 export interface IGoalInputProps{
-    onSubmit: (input: string) => void;
+    onAddGoal: (goal: string) => void;
+    modalVisible: boolean,
+    onCancel: () => void
 }

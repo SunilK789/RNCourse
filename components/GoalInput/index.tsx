@@ -1,30 +1,39 @@
-import { View, Text, TextInput, Button } from "react-native";
+import { View, TextInput, Button, Modal } from "react-native";
 import React, { useState } from "react";
 import styles from "./style";
 import { IGoalInputProps } from "../../intefaces/types";
 
-const GoalInput: React.FC<IGoalInputProps> = ({ onSubmit }) => {
-  const [input, setInput] = useState("");
+const GoalInput: React.FC<IGoalInputProps> = ({ onAddGoal, modalVisible, onCancel }) => {
+  const [input, setInput] = useState<string>("");
 
-  const handleInputText = (enteredText) => {
+  const handleInputText = (enteredText: string) => {
     setInput(enteredText);
   };
 
-  const handleSubmit = () => {
-    onSubmit(input);
+  const addGoalHandler = () => {
+    onAddGoal(input);
     setInput("");
   };
 
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.textInput}
-        placeholder="add your goal.."
-        onChangeText={handleInputText}
-        value={input}
-      />
-      <Button title="Add Goal" onPress={handleSubmit} />
-    </View>
+    <Modal visible={modalVisible} animationType="slide">
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="add your goal.."
+          onChangeText={handleInputText}
+          value={input}
+        />
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <Button title="Add Goal" onPress={addGoalHandler} />
+          </View>
+          <View style={styles.button}>
+            <Button title="Cancel" onPress={onCancel} />
+          </View>
+        </View>
+      </View>
+    </Modal>
   );
 };
 
